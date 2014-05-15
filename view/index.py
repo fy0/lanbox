@@ -1,4 +1,6 @@
 
+# coding:utf-8
+
 import os
 import config
 from os.path import join
@@ -21,10 +23,10 @@ class index(View):
                 'mtime': stat.st_mtime, #修改时间
                 'ctime': stat.st_ctime, #创建时间
                 'size': stat.st_size, #文件大小
-                'source': join(prefix_path, i), #相对路径
+                'source': join(prefix_path, i).replace('\\', '/'), #相对路径
             }
             data.append(info)
-        self.render(data=data, prefix_path=prefix_path)
+        self.render(data=data, prefix_path=prefix_path, host=self.request.host)
 
 @route('/vplay')
 class vplay(View):

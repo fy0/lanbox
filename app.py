@@ -21,4 +21,5 @@ if __name__ == "__main__":
     print('Server started.')
     application.listen(config.PORT)
     tornado.ioloop.IOLoop.instance().start()
-    model.redis.save()
+    #model.redis.save()
+

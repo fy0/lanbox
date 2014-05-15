@@ -1,4 +1,6 @@
 
+# coding:utf-8
+
 #import redis as _redis
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker

@@ -1,4 +1,6 @@
 
+# coding:utf-8
+
 import mako.lookup
 import mako.template
 import tornado.web
