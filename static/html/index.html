@@ -1,0 +1,15 @@
+
+<%inherit file="base.html"/>
+
+%for i in data:
+    <div>
+        %if i['is_dir']:
+            <a href="/?p=${i['source']}">${i['name']}</a>
+        %elif i['ext'] == '.mp4':
+            <a href="/vplay?v=${i['source']}">${i['name']}</a>
+        %else:
+            ${i['name']}
+        %endif
+    </div>
+%endfor
+
