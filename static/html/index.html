@@ -6,15 +6,15 @@
 %for i in data:
     <div>
         %if i['is_dir']:
-            <a href="/?p=${i['source']}">${i['name']}</a>
+            <a href="/?p=${i['source']|u}">${i['name']|h}</a>
         %elif i['ext'] == '.mp4':
-            <a href="/vplay?v=${i['source']}">${i['name']}</a>
+            <a href="/vplay?v=${i['source']|u}">${i['name']|h}</a>
         %elif i['ext'] in ['.jpg', '.png', '.gif', '.bmp']:
-            <a href="/data/${i['source']}">${i['name']}</a>
+            <a href="/data/${i['source']}">${i['name']|h}</a>
         %elif i['ext'] in ['.avi', '.rm', '.rmvb']:
-            <a href="javascript:copyToClipboard('/data/${i['source']}');">${i['name']}</a>
+            <a href="javascript:copyToClipboard('/data/${i['source']}');">${i['name']|h}</a>
         %else:
-            ${i['name']}
+            ${i['name']|h}
         %endif
     </div>
 %endfor
@@ -25,3 +25,4 @@ function copyToClipboard(text) {
   window.prompt("复制链接", 'http://' + location.host + text);
 }
 </script>
+
